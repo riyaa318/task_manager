@@ -1,38 +1,118 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
 .App {
-  text-align: center;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@media (max-width: 768px) {
+  .boards-container {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)) !important;
+    gap: 15px !important;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+@media (max-width: 480px) {
+  .boards-container {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  transition: all 0.3s ease-in-out;
+}
+
+:root {
+  --bg: #f4f6f8;
+  --text: #1a1a1a;
+  --card-bg: #fff;
+  --primary: #4f46e5;
+  --primary-hover: #4338ca;
+  --danger: #ef4444;
+}
+
+.dark {
+  --bg: #000000;
+  --text: #f4f4f4;
+  --card-bg: #1e1e1e;
+  --primary: #6366f1;
+  --primary-hover: #818cf8;
+  --danger: #f87171;
+}
+
+button {
+  cursor: pointer;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+.btn {
+  background: var(--primary);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.btn:hover {
+  background: var(--primary-hover);
 }
 
-@keyframes App-logo-spin {
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+}
+
+.modal {
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 14px;
+  width: 320px;
+  animation: fadeIn 0.3s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+
+.modal input,
+.modal textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  background: transparent;
+  color: var(--text);
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+@keyframes fadeIn {
   from {
-    transform: rotate(0deg);
+    transform: scale(0.9);
+    opacity: 0;
   }
   to {
-    transform: rotate(360deg);
+    transform: scale(1);
+    opacity: 1;
   }
 }

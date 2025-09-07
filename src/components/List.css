@@ -1,0 +1,64 @@
+.list {
+  min-width: 260px;
+  background: var(--card-bg);
+  padding: 12px;
+  border-radius: 12px;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.list-header h3 {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.list-actions button {
+  background: transparent;
+  border: none;
+  font-size: 16px;
+  margin-left: 6px;
+  cursor: pointer;
+  color: var(--text);
+}
+
+.tasks-container {
+  margin-top: 10px;
+}
+
+.taskBtn {
+  background-color: #14b8a6;
+}
+
+@media (max-width: 768px) {
+  .list {
+    padding: 12px;
+    margin-bottom: 12px;
+  }
+
+  .list-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .list-actions {
+    align-self: flex-end;
+  }
+}
+
+@media (max-width: 480px) {
+  .list {
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+  .tasks-container {
+    max-height: 300px;
+  }
+}
